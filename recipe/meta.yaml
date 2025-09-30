@@ -1,13 +1,13 @@
 {% set name = "leb128" %}
-{% set version = "1.0.5" %}
+{% set version = "1.0.8" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/l/leb128/leb128-{{ version }}.tar.gz
-  sha256: cb16001f0087b499ab51f6b8e3ef8377ba14a0c9990db85316dedf0ad4a54e80
+  url: https://pypi.org/packages/source/l/leb128/leb128-{{ version }}.tar.gz
+  sha256: 3a52dca242f93f87a3d766380a93a3fad53ef4044f03018d21705d3b2d9021ee
 
 build:
   number: 0
@@ -18,7 +18,6 @@ requirements:
     - python
     - pip
     - setuptools
-    - wheel
   run:
     - python
 
