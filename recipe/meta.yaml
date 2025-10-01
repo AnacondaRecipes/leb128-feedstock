@@ -1,13 +1,13 @@
 {% set name = "leb128" %}
-{% set version = "1.0.5" %}
+{% set version = "1.0.8" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/l/leb128/leb128-{{ version }}.tar.gz
-  sha256: cb16001f0087b499ab51f6b8e3ef8377ba14a0c9990db85316dedf0ad4a54e80
+  url: https://github.com/mohanson/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
+  sha256: ec495a1ad9e14656f4b6c59b2baae1b96001d7e25d6a8a47edba17799a062c65
 
 build:
   number: 0
@@ -23,17 +23,20 @@ requirements:
     - python
 
 test:
+  source_files:
+    - test
   imports:
     - leb128
-  commands:
-    - pip check
   requires:
     - pip
+    - pytest
+  commands:
+    - pip check
+    - python -c "from importlib.metadata import version; assert(version('{{ name }}')=='{{ version }}')"
+    - pytest -v test
 
 about:
   home: https://github.com/mohanson/leb128
-  dev_url: https://github.com/mohanson/leb128
-  doc_url: https://github.com/mohanson/leb128#readme
   summary: LEB128(Little Endian Base 128)
   description: |
     LEB128 or Little Endian Base 128 is a form of variable-length code
@@ -43,6 +46,8 @@ about:
   license: MIT
   license_family: MIT
   license_file: LICENSE
+  dev_url: https://github.com/mohanson/leb128
+  doc_url: https://github.com/mohanson/leb128#readme
 
 extra:
   recipe-maintainers:
