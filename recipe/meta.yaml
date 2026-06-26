@@ -1,5 +1,5 @@
 {% set name = "leb128" %}
-{% set version = "1.0.8" %}
+{% set version = "1.0.9" %}
 
 package:
   name: {{ name }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://github.com/mohanson/{{ name }}/archive/refs/tags/v{{ version }}.tar.gz
-  sha256: ec495a1ad9e14656f4b6c59b2baae1b96001d7e25d6a8a47edba17799a062c65
+  sha256: 52c8888ad6a5f5490542e12ba092c4addb0f388cbee83d824496468c89163cf7
 
 build:
   number: 0
@@ -17,8 +17,7 @@ requirements:
   host:
     - python
     - pip
-    - setuptools
-    - wheel
+    - hatchling
   run:
     - python
 
